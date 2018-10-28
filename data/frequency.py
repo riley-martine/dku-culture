@@ -60,11 +60,27 @@ if __name__ == "__main__":
     THINK_COUNT = limit(get_count("think"), 3)
     FEAR_COUNT = limit(get_count("fear"), 3)
     COMBINED = combine(combine(HOPE_COUNT, THINK_COUNT), FEAR_COUNT)
-    print(tabulate(COMBINED, headers=["Hope", "#", "Think", "#", "Fear", "#"]))
+    print(
+        tabulate(
+            COMBINED, headers=["Hope", "#", "Think", "#", "Fear", "#"], tablefmt="html"
+        )
+    )
 
     print()
-    print(tabulate(get_common("think", "fear"), headers=["word", "think", "fear"]))
+    print(
+        tabulate(
+            get_common("think", "fear"),
+            headers=["word", "think", "fear"],
+            tablefmt="html",
+        )
+    )
     print()
-    print(tabulate(get_common("think", "hope"), headers=["word", "think", "hope"]))
+    print(
+        tabulate(
+            get_common("think", "hope"),
+            headers=["word", "think", "hope"],
+            tablefmt="html",
+        )
+    )
 
     # print(get_common("hope", "think"))
