@@ -71,3 +71,11 @@ if __name__ == "__main__":
 
     print()
     incidence(get_responses())
+    NUM_GLOBAL = len(
+        [
+            xs
+            for xs in get_responses()
+            if ("Multicultural" in xs) or ("Diverse" in xs) or ("Global" in xs)
+        ]
+    )
+    print(NUM_GLOBAL)
