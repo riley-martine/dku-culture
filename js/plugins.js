@@ -46,7 +46,7 @@ const $ = window.$
 
 // jQuery/helper plugins
 $(function () {
-  $('#accordion').accordion({
+  $('.accordion').accordion({
     collapsible: true,
     active: false
   })
