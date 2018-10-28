@@ -6,9 +6,10 @@ import json
 import os
 import statistics
 import subprocess
-from typing import Dict, List
+from typing import Callable, Dict, List
 
 from mypy_extensions import TypedDict
+from tabulate import tabulate
 
 Probability = TypedDict("Probability", {"neg": float, "pos": float, "neutral": float})
 Sentiment = TypedDict("Sentiment", {"probability": Probability, "label": str})
@@ -99,24 +100,48 @@ def get_rows() -> Dict[str, List[str]]:
     return rows
 
 
-def calculate_mean_sentiments(
-    rows: Dict[str, List[str]], sentiment: Dict[str, Sentiment]
+def calculate_func_sentiments(
+    rows: Dict[str, List[str]], sentiment: Dict[str, Sentiment], func: Callable
 ) -> Dict[str, float]:
     """Calculate some mean numbers."""
     out = {}
     keys = ["pos", "neg", "neutral"]
     banned = ["intense"]
     for header, words in rows.items():
-        means = {}
+        evaluated = {}
         for key in keys:
             word_sent = [
                 sentiment[word]["probability"][key]
                 for word in words
                 if word not in banned
             ]
-            means[key] = statistics.mean(word_sent)
-        out[header] = means
+            evaluated[key] = func(word_sent)
+        out[header] = evaluated
     return out
+
+
+def printd(data: Dict[str, float], funcname: str) -> None:
+    """Print data from calculate_func_sentiments with tabulate."""
+
+    # Someone who knows numpy help
+    print(
+        tabulate(
+            [
+                ["pos", data["hope"]["pos"], data["fear"]["pos"], data["think"]["pos"]],
+                ["neg", data["hope"]["neg"], data["fear"]["neg"], data["think"]["neg"]],
+                [
+                    "neutral",
+                    data["hope"]["neutral"],
+                    data["fear"]["neutral"],
+                    data["think"]["neutral"],
+                ],
+            ],
+            headers=[funcname, "Hope", "Fear", "Think"],
+            tablefmt="html",
+            floatfmt=".2f",
+        )
+    )
+    print()
 
 
 if __name__ == "__main__":
@@ -125,4 +150,10 @@ if __name__ == "__main__":
 
     sent_dict = disk_sentiment()
     rows_to_calc = get_rows()
-    print(calculate_mean_sentiments(rows_to_calc, sent_dict))
+    printd(calculate_func_sentiments(rows_to_calc, sent_dict, statistics.mean), "Mean")
+    printd(
+        calculate_func_sentiments(rows_to_calc, sent_dict, statistics.stdev), "Stdev"
+    )
+    printd(
+        calculate_func_sentiments(rows_to_calc, sent_dict, statistics.median), "Median"
+    )
