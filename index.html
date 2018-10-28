@@ -23,16 +23,24 @@
   <p>Before everyone left for DKU, I sent a survey out to our
   shared WeChat group asking three questions: how do you <b>hope</b>,
   <b>fear</b>, and <b>think</b> the social and academic culture at Duke Kunshan
-  will be?</p>
+  will be? After the first seven weeks, I sent out another survey to determine
+  how things shook out.</p>
 
   <div class="accordion">
     <p><em>Click To Show Full Text of Survey</em></p>
-    <div><ul>
+    <div>
+    <p>Initial Survey</p>
+    <ul>
       <li>List up to three adjectives you HOPE will describe the social and academic culture of DKU</li>
       <li>List up to three adjectives you FEAR will describe the social and academic culture of DKU</li>
       <li>List up to three adjectives you THINK will describe the social and academic culture of DKU</li>
-    </ul></div>
+    </ul>
+
+    <p>Follow-up Survey</p>
+    <p>Select all options you feel accurately describe the social and academic culture of DKU. (Choices were all words listed in frequency table by column below.)</p>
+    </div>
   </div>
+
 
   <p>The goal I had for this survey was to find out what
   qualities we, as a community, should put extra effort into
@@ -53,7 +61,7 @@
   When they look back, how will they see us?</p>
 
   <h2>Survey Data</h2>
-  <p>There were 35 responses to the survey.
+  <p>There were 35 responses to the original survey, and 32 to the follow-up.
 
   <div class="accordion">
     <p><em>Click To Expand Links to Data</em></p>
@@ -63,6 +71,7 @@
       <li>A version of the data with responses of similar words normalized is <a href="data/normalized_responses.csv">here</a>. Use this one for analysis.</li>
       <li>A file with every unique word in the cleaned data is <a href="data/individual_words.csv">here</a>.</li>
       <li>A file with the sentiments gathered is <a href="data/sentiments.csv">here</a>.</li>
+      <li>A file with the follow-up data is <a href="data/evaluation.csv">here</a>.</li>
     </ul></div>
   </div>
 
@@ -183,6 +192,41 @@
   </div>
   </div>
 
+  <div class="accordion">
+  <p><em>Click to Expand all Follow-up Calculations</em></p>
+  <div>
+ <h3>Frequency of Words in Follow-up</h3>
+<table>
+<thead>
+<tr><th>Word          </th><th style="text-align: right;">  #</th></tr>
+</thead>
+<tbody>
+<tr><td>Friendly      </td><td style="text-align: right;"> 21</td></tr>
+<tr><td>Diverse       </td><td style="text-align: right;"> 21</td></tr>
+<tr><td>Multicultural </td><td style="text-align: right;"> 20</td></tr>
+<tr><td>Global        </td><td style="text-align: right;"> 19</td></tr>
+<tr><td>Challenging   </td><td style="text-align: right;"> 17</td></tr>
+<tr><td>Open-minded   </td><td style="text-align: right;"> 16</td></tr>
+<tr><td>Supportive    </td><td style="text-align: right;"> 15</td></tr>
+<tr><td>Dynamic       </td><td style="text-align: right;"> 14</td></tr>
+<tr><td>Harmonious    </td><td style="text-align: right;"> 14</td></tr>
+<tr><td>Positive      </td><td style="text-align: right;"> 14</td></tr>
+<tr><td>Fun           </td><td style="text-align: right;"> 13</td></tr>
+<tr><td>Competitive   </td><td style="text-align: right;"> 10</td></tr>
+<tr><td>Difficult     </td><td style="text-align: right;">  9</td></tr>
+<tr><td>Inclusive     </td><td style="text-align: right;">  8</td></tr>
+<tr><td>Innovative    </td><td style="text-align: right;">  8</td></tr>
+<tr><td>Cliquey       </td><td style="text-align: right;">  7</td></tr>
+<tr><td>Boring        </td><td style="text-align: right;">  4</td></tr>
+<tr><td>Indifferent   </td><td style="text-align: right;">  4</td></tr>
+<tr><td>Discriminatory</td><td style="text-align: right;">  1</td></tr>
+</tbody>
+</table>
+
+
+
+  </div>
+  </div>
 
   </p>
 
@@ -198,13 +242,23 @@
 <h3>Do People Think What They Hope?</h3>
   <p>I used two techniques to answer this question: sentiment analysis and word frequency comparison. Sentiment analysis is a tool for extracting opinion from text. I used it to find the positive and negative associations of words, to get a meaurable value of opinion. The data shows that the way people hoped and thought were more similar than how they feared and thought. The mean measures of positive, negative, and neutral scores for words in each category match almost perfectly for <kbd>hope</kbd> and <kbd>think</kbd>.</p>
 
-  <p>To further look at this trend, I found the count of words common to multiple categories. There were 6 words common to <kbd>think/fear</kbd>, and 24 common to <kbd>think/hope</kbd>. People have high expectations.</p>
+  <p>To further look at this trend, I found the count of words common to multiple categories. There were 6 words common to <kbd>think/fear</kbd>, and 24 common to <kbd>think/hope</kbd>. Three of the top four responses for <kbd>think</kbd> are also in the top responses for <kbd>hope</kbd>. People have high expectations.</p>
 
 
   <h3>What Do We Fear?</h3>
   <p>
   The most common things people said they feared were the culture being <kbd>boring, cliquey, competitive, difficult, discriminatory,</kbd> and <kbd>indifferent</kbd>.
-  The words common to <kbd>think</kbd> and <kbd>fear</kbd> are <kbd>competitive, challenging, difficult, stressful</kbd>. Two of these are also among the top 6 words in the fear category.
+  The words common to <kbd>think</kbd> and <kbd>fear</kbd> are <kbd>competitive, challenging, difficult, stressful</kbd>. Notably, two of these are also among the top 6 words in the fear category.
+  </p>
+
+  <h3>Follow-up</h3>
+  <p>In the follow-up survey, I gathered data on how people feel the culture has developed. We seem to be succeeding - partially. The thing that most people hoped for, inclusivity, ranks very low. However, the two highest rated responses were for friendliness and diversity, things we desire. The school, many said, was challenging, but half as many said it was <kbd>difficult</kbd>. (17 Challenging, 9 difficult)
+  </p>
+
+  <h3>What Now?</h3>
+  <p>
+  Now that we have this information, what do we do with it?
+
   </p>
 
 
